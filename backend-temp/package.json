@@ -1,0 +1,37 @@
+{
+  "name": "backend-temp",
+  "private": true,
+  "packageManager": "pnpm@10.25.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "start": "turbo start",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "backend:seed": "turbo seed --filter=@dtc/backend",
+    "backend:dev": "turbo dev --filter=@dtc/backend",
+    "customer:dev": "turbo dev --filter=@dtc/customer",
+    "customer:build": "turbo build --filter=@dtc/customer",
+    "storefront:dev": "turbo dev --filter=@dtc/customer"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.5",
+      "@types/react-dom": "19.0.5"
+    }
+  },
+  "devDependencies": {
+    "turbo": "^2.0.14",
+    "prettier": "^3.2.5"
+  },
+  "workspaces": [
+    "apps/**",
+    "!apps/backend/.medusa/**"
+  ],
+  "overrides": {
+    "ajv": "^8.0.0"
+  }
+}
